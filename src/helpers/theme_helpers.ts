@@ -4,7 +4,7 @@ export async function setThemeToDefault() {
 }
 
 export function updateDocumentTheme(isDarkMode: boolean) {
-    if (!isDarkMode) {
+    if (true) {
         document.documentElement.classList.remove("dark");
     } else {
         document.documentElement.classList.add("dark");

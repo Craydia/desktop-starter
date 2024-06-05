@@ -2,9 +2,17 @@ import { WIN_MINIMIZE_CHANNEL, WIN_MAXIMIZE_CHANNEL, WIN_CLOSE_CHANNEL } from ".
 
 export function exposeWindowContext() {
     const { contextBridge, ipcRenderer } = window.require("electron");
+
+    // Check if the OS is not Windows, return early if true
+    if (process.platform !== 'win32') {
+        return;
+    }
+
+    console.log(process.platform)
+
     contextBridge.exposeInMainWorld("electronWindow", {
-        minimize: () => ipcRenderer.invoke(WIN_MINIMIZE_CHANNEL),
-        maximize: () => ipcRenderer.invoke(WIN_MAXIMIZE_CHANNEL),
-        close: () => ipcRenderer.invoke(WIN_CLOSE_CHANNEL),
+        minimize: () => ipcRenderer.invoke(""),
+        maximize: () => ipcRenderer.invoke(""),
+        close: () => ipcRenderer.invoke(""),
     });
 }
